@@ -15,6 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.api.Student;
 import com.example.resultsetextractor.StudentAddressResultSetExtractor;
@@ -125,6 +126,7 @@ public class StundentDAOImpl implements StudentDAO {
 	}
 
 	@Override
+	@Transactional
 	public int updateStudent(Student student) {
 
 		String sql = "UPDATE School.STUDENT set STUDENT_ADDRESS = ? where ROOL_NO = ?";
@@ -135,10 +137,11 @@ public class StundentDAOImpl implements StudentDAO {
 
 	@Override
 	public int updateStudent(List<Student> studentList) {
+		int updatedRowCount = 0;
 		
 		String sql = "UPDATE School.STUDENT set STUDENT_ADDRESS = ? where ROOL_NO = ?";
 		
-		jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter(){
+		int [] batchUpdate = jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter(){
 
 			@Override
 			public int getBatchSize() {
@@ -154,8 +157,15 @@ public class StundentDAOImpl implements StudentDAO {
 			}
 			
 		});
+		
+		for(int i = 0 ; i <batchUpdate.length ; i++) {
+			if(batchUpdate[i] == 1) {
+				updatedRowCount++;
+			}
+			
+		}
 	
-		return 0;
+		return updatedRowCount;
 	}
 
 }

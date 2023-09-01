@@ -57,7 +57,8 @@ public class Test {
 		studentList.add(jhon);
 		studentList.add(frank);
 		
-		studentDAO.updateStudent(studentList);
+		int updatedRowCount = studentDAO.updateStudent(studentList);
+		System.out.println(updatedRowCount+" No of rows affected...");
 		
 	}
 
