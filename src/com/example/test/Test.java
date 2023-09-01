@@ -1,5 +1,6 @@
 package com.example.test;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +35,29 @@ public class Test {
 		
 		Map<String, List<String>> groupStudentsByAddress = studentDAO.groupStudentsByAddress();
 		System.out.println(groupStudentsByAddress);
+		
+		Student abhilash = new Student();
+		abhilash.setAddress("Blr");
+		abhilash.setRoolNo(1);
+		
+		Student jhon = new Student();
+		jhon.setAddress("Denver");
+		jhon.setRoolNo(2);
+		
+		Student frank = new Student();
+		frank.setAddress("New york");
+		frank.setRoolNo(7);
+//		
+//		studentDAO.updateStudent(abhilash);
+//		studentDAO.updateStudent(jhon);
+//		studentDAO.updateStudent(frank);
+	
+		List<Student> studentList = new ArrayList<Student>();
+		studentList.add(abhilash);
+		studentList.add(jhon);
+		studentList.add(frank);
+		
+		studentDAO.updateStudent(studentList);
 		
 	}
 

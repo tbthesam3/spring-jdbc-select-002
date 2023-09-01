@@ -1,5 +1,7 @@
 package com.example.dao;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -120,6 +122,40 @@ public class StundentDAOImpl implements StudentDAO {
 		Map<String, List<String>> query = jdbcTemplate.query(sql, new StudentAddressResultSetExtractor());
 		
 		return query;
+	}
+
+	@Override
+	public int updateStudent(Student student) {
+
+		String sql = "UPDATE School.STUDENT set STUDENT_ADDRESS = ? where ROOL_NO = ?";
+		 int update = jdbcTemplate.update(sql, student.getAddress(),student.getRoolNo());		
+		
+		return update;
+	}
+
+	@Override
+	public int updateStudent(List<Student> studentList) {
+		
+		String sql = "UPDATE School.STUDENT set STUDENT_ADDRESS = ? where ROOL_NO = ?";
+		
+		jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter(){
+
+			@Override
+			public int getBatchSize() {
+				// TODO Auto-generated method stub
+				return studentList.size();
+			}
+
+			@Override
+			public void setValues(PreparedStatement ps, int index) throws SQLException {
+
+				ps.setString(1, studentList.get(index).getAddress());
+				ps.setInt(2, studentList.get(index).getRoolNo());
+			}
+			
+		});
+	
+		return 0;
 	}
 
 }
