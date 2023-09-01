@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-16">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Hesam/Downloads/spring-web-5.1.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Hesam/Downloads/Compressed/mysql-connector.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Hesam/Downloads/Compressed/spring-jdbc-3.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Hesam/Downloads/Compressed/spring-dao-2.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Hesam/Downloads/Compressed/spring-context-3.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Hesam/Downloads/Compressed/beanfactory-3.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Hesam/Downloads/Compressed/org.springframework.beans-3.1.2.release.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Hesam/Downloads/Compressed/org.springframework.jdbc-3.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Hesam/Downloads/Compressed/spring-jdbc-2.5.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Hesam/Downloads/Compressed/spring-tx-3.2.3.release.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
